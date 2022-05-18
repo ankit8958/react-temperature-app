@@ -5,9 +5,10 @@ const Tempapp = () => {
     const [search, setSearch] = useState('noida');
     useEffect(() => {
         async function fectApi() {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid={WriteYourAPIKey}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=48f2ce87ecbe55ff10e554dda1f546ab`;
             const response = await fetch(url);
             const resJson = await response.json();
+            // console.log("res data==>>>",resJson.main);
             setCity(resJson.main);
         };
         fectApi();
@@ -33,7 +34,7 @@ const Tempapp = () => {
                             <h1 className="temp">
                                 {city.temp}°C
                             </h1>
-                            <h3 className="tempmin_max">Min : {city.temp_min}°C | Max : {city.temp.max}°C</h3>
+                            <h3 className="tempmin_max">Min : {city.temp_min}°C | Max : {city.temp_max}°C</h3>
                         </div>
                         <div className="wave -one"></div>
                         <div className="wave -two"></div>
